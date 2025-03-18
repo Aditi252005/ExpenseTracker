@@ -53,36 +53,36 @@ export default function ExpenseTracker() {
 
   if (welcome) {
     return (
-      <div style={{ textAlign: "center", padding: "20px" }}>
+      <section style={{ textAlign: "center", padding: "20px" ,marginTop:"100px", fontSize:"30px"}}>
         <h1>WELCOME!!</h1>
-        <button onClick={() => setWelcome(false)} style={{ padding: "10px 20px", fontSize: "16px", backgroundColor: "blue", color: "white", border: "none", cursor: "pointer" }}>Proceed</button>
-      </div>
+        <button onClick={() => setWelcome(false)} style={{ padding: "10px 20px", fontSize: "16px", backgroundColor: "skyblue", color: "black", border: "none", cursor: "pointer" }}>Proceed</button>
+      </section>
     );
   }
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
+    <div style={{ textAlign: "center", padding: "20px", color:"black" }}>
       {!user ? (
-        <div style={{ border: "1px solid #ccc", padding: "20px", width: "300px", margin: "auto" }}>
+        <div style={{ border: "1px solid #ccc", padding: "40px", width: "300px", margin: "auto" , marginTop:"30px", fontSize:"20px"}}>
           <h2>Signup</h2>
           <input
             type="text"
             placeholder="Enter your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            style={{ display: "block", width: "100%", marginBottom: "10px", padding: "8px" }}
+            style={{ display: "block", width: "90%", marginBottom: "10px", padding: "15px" }}
           />
           <input
             type="number"
             placeholder="Set your budget"
             value={budget}
             onChange={(e) => setBudget(e.target.value)}
-            style={{ display: "block", width: "100%", marginBottom: "10px", padding: "8px" }}
+            style={{ display: "block", width: "90%", marginBottom: "10px", padding: "15px" }}
           />
-          <button onClick={handleSignup} style={{ width: "100%", padding: "10px", backgroundColor: "blue", color: "white", border: "none" }}>Start Tracking</button>
+          <button onClick={handleSignup} style={{ width: "100%", padding: "10px", backgroundColor: "skyblue", color: "black", border: "none" }}>Start Tracking</button>
         </div>
       ) : (
-        <div style={{ border: "1px solid #ccc", padding: "20px", width: "300px", margin: "auto", backgroundColor: remainingBudget < 500 ? "red" : "white" }}>
+        <div style={{ border: "1px solid #ccc", padding: "20px", width: "300px", margin: "auto", backgroundColor: remainingBudget < 500 ? "red" : "beige" }}>
           <h2>Welcome, {user}!</h2>
           <h3>Budget: ₹{budget}</h3>
           <h3 style={{ color: "green" }}>Remaining: ₹{remainingBudget}</h3>
@@ -92,14 +92,14 @@ export default function ExpenseTracker() {
               placeholder="Expense Description"
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
-              style={{ display: "block", width: "100%", marginBottom: "10px", padding: "8px" }}
+              style={{ display: "block", width: "90%", marginBottom: "10px", padding: "15px" }}
             />
             <input
               type="number"
               placeholder="Amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              style={{ display: "block", width: "100%", marginBottom: "10px", padding: "8px" }}
+              style={{ display: "block", width: "90%", marginBottom: "10px", padding: "15px" }}
             />
             <button onClick={addExpense} style={{ width: "100%", padding: "10px", backgroundColor: "blue", color: "white", border: "none" }}>
               {editingIndex !== null ? "Update Expense" : "Add Expense"}
