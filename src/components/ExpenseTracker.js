@@ -8,6 +8,7 @@ export default function ExpenseTracker() {
   const [desc, setDesc] = useState("");
   const [budget, setBudget] = useState("");
   const [editingIndex, setEditingIndex] = useState(null);
+  const [welcome, setWelcome] = useState(true);
 
   const handleSignup = () => {
     if (name.trim() && budget) {
@@ -49,6 +50,15 @@ export default function ExpenseTracker() {
 
   const totalExpenses = expenses.reduce((acc, exp) => acc + exp.amount, 0);
   const remainingBudget = budget - totalExpenses;
+
+  if (welcome) {
+    return (
+      <div style={{ textAlign: "center", padding: "20px" }}>
+        <h1>WELCOME!!</h1>
+        <button onClick={() => setWelcome(false)} style={{ padding: "10px 20px", fontSize: "16px", backgroundColor: "blue", color: "white", border: "none", cursor: "pointer" }}>Proceed</button>
+      </div>
+    );
+  }
 
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
